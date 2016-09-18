@@ -1,4 +1,4 @@
-# RadioRevolt.no API
+# RadioRevolt.no API  [![CircleCI](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/master.svg?style=svg&circle-token=857eae8d8a788eabadcd868e5153010c7b72227b)](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/master)
 
 ## Workflow
 
