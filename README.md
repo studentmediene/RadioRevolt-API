@@ -8,6 +8,11 @@
 4. When you're done (see definition of done on GitHub), create a pull request with reference to the JIRA-issue (preferably a link) and an overview of what the pull request is about. Await code review (you can tag people or yell for them on Slack to get your review faster).
 5. When you've reworked your code after the code review, the pull request will be merged.
 
+_Please note that:_
+
+* Only organisation admins can push directly to `master`
+* Pull requests to master has to pass on Circle (tests), and must be approved through the GitHub review system.
+
 ### Branch naming strategy
 The project has a strategy for what to name our branches, so that changes in them are easily traceable to user stories and issues in our issue tracking system JIRA. Another reason for having a naming strategy is that it makes it easy to find distinct types of proposed changes, as well as what's being worked on.
 
