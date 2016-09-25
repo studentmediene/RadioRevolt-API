@@ -4,23 +4,23 @@ import { getAllElements, loadFixtures } from '../helpers';
 import app from '../../src/app';
 
 const fixtures = [
-    'examples'
+    'categories'
 ];
 
-const URI = '/examples';
+const URI = '/categories';
 
 let dbObjects;
 
-describe.serial('Example API', it => {
+describe.serial('Category API', it => {
     it.beforeEach(() =>
         loadFixtures(fixtures)
-            .then(() => getAllElements('Example'))
+            .then(() => getAllElements('Category'))
             .then(response => {
                 dbObjects = response;
             })
     );
 
-    it('should reitrieve a list of all examples', async t => {
+    it('should reitrieve a list of all categories', async t => {
         const response = await request(app)
             .get(URI)
             .expect(200)
@@ -28,7 +28,7 @@ describe.serial('Example API', it => {
         t.is(response.length, dbObjects.length);
     });
 
-    it('should return a single example', async t => {
+    it('should return a single category', async t => {
         const fixture = dbObjects[0];
         const response = await request(app)
             .get(`${URI}/${fixture.id}`)
@@ -36,39 +36,39 @@ describe.serial('Example API', it => {
         t.is(response.body.name, fixture.name);
     });
 
-    it('should return ResourceNotFound when retrieving nonexisting example', async t => {
+    it('should return ResourceNotFound when retrieving nonexisting category', async t => {
         const fixture = dbObjects[0];
         const response = await request(app)
             .get(`${URI}/${fixture.id + 10000}`)
             .expect(404);
         t.is(response.body.name, 'ResourceNotFoundError');
-        t.is(response.body.message, 'Could not find resource of type example');
+        t.is(response.body.message, 'Could not find resource of type category');
     });
 
-    it('should add a new example', async t => {
+    it('should add a new category', async t => {
         const content = {
-            name: 'added example'
+            title: 'added category',
+            description: 'Great new category'
         };
         const response = await request(app)
             .post(URI)
             .send(content)
             .expect(201);
-
         t.is(response.body.name, content.name);
     });
 
-    it('should be able to update an example', async () => {
-        const example = dbObjects[0];
+    it('should be able to update a category', async () => {
+        const category = dbObjects[0];
         await request(app)
-            .put(`${URI}/${example.id}`)
+            .put(`${URI}/${category.id}`)
             .send({ name: 'changed' })
             .expect(204);
     });
 
-    it('should be able to delete an example', async () => {
-        const example = dbObjects[0];
+    it('should be able to delete a category', async () => {
+        const category = dbObjects[0];
         await request(app)
-            .delete(`${URI}/${example.id}`)
+            .delete(`${URI}/${category.id}`)
             .expect(204);
     });
 });

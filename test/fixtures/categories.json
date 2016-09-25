@@ -1,0 +1,23 @@
+[
+	{
+		"model": "Category",
+		"data": {
+            "title": "kek1",
+            "description": "funny category 1"
+		}
+	},
+    {
+        "model": "Category",
+        "data": {
+            "title": "kek2",
+            "description": "funny category 2"
+        }
+    },
+    {
+        "model": "Category",
+        "data": {
+            "title": "kek3",
+            "description": "funny category 3"
+        }
+    }
+]
