@@ -1,0 +1,32 @@
+[
+	{
+		"model": "Post",
+		"data": {
+            "lead": "Test post 1",
+            "content": "Great new test post 1",
+            "coverPhoto": "http://imgur.com",
+            "authorId": null,
+            "pinned": false
+		}
+	},
+    {
+        "model": "Post",
+        "data": {
+            "lead": "Test post 2",
+            "content": "Great new test post 2",
+            "coverPhoto": "http://imgur.com",
+            "authorId": null,
+            "pinned": false
+        }
+    },
+    {
+        "model": "Post",
+        "data": {
+            "lead": "Test post 3",
+            "content": "Great new test post 3",
+            "coverPhoto": "http://imgur.com",
+            "authorId": null,
+            "pinned": false
+        }
+    }
+]
