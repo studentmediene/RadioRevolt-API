@@ -1,10 +1,10 @@
 /**
-* Episode model
-* @module models/Episode
+* Show model
+* @module models/Show
 */
 
 /**
-* Episode model - create and export the database model for posts
+* Show model - create and export the database model for shows
 * including all assosiations and classmethods assiciated with this model.
 * @memberof  module:models/Post
 * @param  {Object} sequelize description
@@ -35,7 +35,12 @@ export default function (sequelize, DataTypes) {
     }, {
         classMethods: {
             associate(models) {
-                Show.hasMany(models.Post);
+                Show.hasMany(models.Post, {
+                    onDelete: 'cascade'
+                });
+                Show.hasMany(models.Episode, {
+                    onDelete: 'cascade'
+                });
             }
         }
     }

@@ -38,7 +38,7 @@ export default function (sequelize, DataTypes) {
                 Episode.belongsTo(models.Show, {
                     foreignKey: {
                         name: 'showId',
-                        allowNull: false
+                        allowNull: true
                     }
                 });
             }
