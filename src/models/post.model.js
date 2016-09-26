@@ -12,6 +12,11 @@
 */
 export default function (sequelize, DataTypes) {
     const Post = sequelize.define('post', {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: ''
+        },
         lead: {
             type: DataTypes.STRING,
             allowNull: false,

@@ -12,7 +12,7 @@
 */
 export default function (sequelize, DataTypes) {
     const Show = sequelize.define('show', {
-        name: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: ''
