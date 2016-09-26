@@ -2,7 +2,7 @@
 
 ## Workflow
 
-1. Get a task under GitHub issues (for now) by talking to you teammates and looking at the sprint backlog.
+1. Get a task under GitHub issues by talking to you teammates and looking at the sprint backlog. Our Kanban-board is [here](https://github.com/Studentmediene/RadioRevolt-API/projects/2)
 2. Create a new branch  from the `dev`-branch, naming it using our branch naming strategy described below.
 3. Code away and commit often. Try to follow [good commit practice](http://chris.beams.io/posts/git-commit/). Remember to write tests (and run them).
 4. When you're done (see definition of done on GitHub), create a pull request with reference to the JIRA-issue (preferably a link) and an overview of what the pull request is about. Await code review (you can tag people or yell for them on Slack to get your review faster).
@@ -14,13 +14,13 @@ _Please note that:_
 * Pull requests to master has to pass on Circle (tests), and must be approved through the GitHub review system.
 
 ### Branch naming strategy
-The project has a strategy for what to name our branches, so that changes in them are easily traceable to user stories and issues in our issue tracking system JIRA. Another reason for having a naming strategy is that it makes it easy to find distinct types of proposed changes, as well as what's being worked on.
+The project has a strategy for what to name our branches, so that changes in them are easily traceable to issues here on GitHub. Another reason for having a naming strategy is that it makes it easy to find distinct types of proposed changes, as well as what's being worked on.
 
-Name your branches in the following way, where `RR-num` is a task ID on JIRA:
+Name your branches in the following way, where `num` is a issue ID on GitHub:
 
-* If it's a feature (new functionality) name the branch `feature/RR-num`.
-* If it's a bugfix name the branch `bugfix/RR-num`.
-* If it's a technical task, name the branch `tech/RR-num`
+* If it's a feature (new functionality) name the branch `feature/num`.
+* If it's a bugfix name the branch `bugfix/num`.
+* If it's a technical task, name the branch `tech/num`
 
 ## Setup
 ### Database
