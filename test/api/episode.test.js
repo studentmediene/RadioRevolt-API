@@ -3,20 +3,20 @@ import request from 'supertest-as-promised';
 import { getAllElements, loadFixtures } from '../helpers';
 import app from '../../src/app';
 
-const URI = '/posts';
+const URI = '/episodes';
 
 let dbObjects;
 
-describe.serial('Post API', it => {
+describe.serial('Episode API', it => {
     it.beforeEach(() =>
         loadFixtures()
-            .then(() => getAllElements('Post'))
+            .then(() => getAllElements('Episode'))
             .then(response => {
                 dbObjects = response;
             })
     );
 
-    it('should reitrieve a list of all posts', async t => {
+    it('should reitrieve a list of all episodes', async t => {
         const response = await request(app)
             .get(URI)
             .expect(200)
@@ -24,7 +24,7 @@ describe.serial('Post API', it => {
         t.is(response.length, dbObjects.length);
     });
 
-    it('should return a single post', async t => {
+    it('should return a single Episode', async t => {
         const fixture = dbObjects[0];
         const response = await request(app)
             .get(`${URI}/${fixture.id}`)
@@ -32,23 +32,22 @@ describe.serial('Post API', it => {
         t.is(response.body.name, fixture.name);
     });
 
-    it('should return ResourceNotFound when retrieving nonexisting post', async t => {
+    it('should return ResourceNotFound when retrieving nonexisting Episode', async t => {
         const fixture = dbObjects[0];
         const response = await request(app)
             .get(`${URI}/${fixture.id + 10000}`)
             .expect(404);
         t.is(response.body.name, 'ResourceNotFoundError');
-        t.is(response.body.message, 'Could not find resource of type post');
+        t.is(response.body.message, 'Could not find resource of type episode');
     });
 
-    it('should add a new post', async t => {
+    it('should add a new Episode', async t => {
         const content = {
-            title: 'New post',
-            lead: 'New post that you have to read',
-            content: 'Great new post',
-            coverPhoto: 'http://imgur.com',
-            authorId: null,
-            pinned: false
+            title: 'Kek wild episode 2',
+            lead: 'What a wild episode',
+            podcastUrl: 'http://www.p4.no/lyttesenter/podcast.ashx?pid=330',
+            soundUrl: 'http://nrk.no/radio',
+            showId: 1
         };
         const response = await request(app)
             .post(URI)
@@ -57,18 +56,18 @@ describe.serial('Post API', it => {
         t.is(response.body.name, content.name);
     });
 
-    it('should be able to update a post', async () => {
-        const post = dbObjects[0];
+    it('should be able to update a Episode', async () => {
+        const episode = dbObjects[0];
         await request(app)
-            .put(`${URI}/${post.id}`)
+            .put(`${URI}/${episode.id}`)
             .send({ name: 'changed' })
             .expect(204);
     });
 
-    it('should be able to delete a post', async () => {
-        const post = dbObjects[0];
+    it('should be able to delete a Episode', async () => {
+        const Episode = dbObjects[0];
         await request(app)
-            .delete(`${URI}/${post.id}`)
+            .delete(`${URI}/${Episode.id}`)
             .expect(204);
     });
 });

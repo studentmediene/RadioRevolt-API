@@ -2,31 +2,41 @@
 	{
 		"model": "Post",
 		"data": {
+            "title": "Some post 1",
             "lead": "Test post 1",
             "content": "Great new test post 1",
             "coverPhoto": "http://imgur.com",
             "authorId": null,
-            "pinned": false
+            "pinned": false,
+            "cateogryId": 1,
+            "showId": 1
 		}
 	},
     {
         "model": "Post",
         "data": {
+            "title": "Some post 2",
             "lead": "Test post 2",
             "content": "Great new test post 2",
             "coverPhoto": "http://imgur.com",
             "authorId": null,
-            "pinned": false
+            "pinned": false,
+            "cateogryId": 2,
+            "showId": 2
+
         }
     },
     {
         "model": "Post",
         "data": {
+            "title": "Some post 3",
             "lead": "Test post 3",
             "content": "Great new test post 3",
             "coverPhoto": "http://imgur.com",
             "authorId": null,
-            "pinned": false
+            "pinned": false,
+            "cateogryId": 2,
+            "showId": 2
         }
     }
 ]

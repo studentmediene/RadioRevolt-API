@@ -3,17 +3,13 @@ import request from 'supertest-as-promised';
 import { getAllElements, loadFixtures } from '../helpers';
 import app from '../../src/app';
 
-const fixtures = [
-    'categories'
-];
-
 const URI = '/categories';
 
 let dbObjects;
 
 describe.serial('Category API', it => {
     it.beforeEach(() =>
-        loadFixtures(fixtures)
+        loadFixtures()
             .then(() => getAllElements('Category'))
             .then(response => {
                 dbObjects = response;

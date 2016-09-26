@@ -1,0 +1,29 @@
+[
+	{
+		"model": "Show",
+		"data": {
+            "title": "Kek wild Show 1",
+            "lead": "What a wild Show",
+            "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
+            "logoImage": "http://imgur.com"
+		}
+	},
+    {
+        "model": "Show",
+        "data": {
+            "title": "Kek wild Show 2",
+            "lead": "What a wild Show",
+            "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
+            "logoImage": "http://imgur.com"
+        }
+    },
+    {
+        "model": "Show",
+        "data": {
+            "title": "Kek wild Show 3",
+            "lead": "What a wild Show",
+            "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
+            "logoImage": "http://imgur.com"
+        }
+    }
+]

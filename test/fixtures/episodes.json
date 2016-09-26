@@ -1,0 +1,32 @@
+[
+	{
+		"model": "Episode",
+		"data": {
+            "title": "Kek wild episode 1",
+            "lead": "What a wild episode",
+            "podcastUrl": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
+            "soundUrl": "http://nrk.no/radio",
+            "showId": 1
+		}
+	},
+    {
+        "model": "Episode",
+        "data": {
+            "title": "Kek wild episode 2",
+            "lead": "What a wild episode",
+            "podcastUrl": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
+            "soundUrl": "http://nrk.no/radio",
+            "showId": 2
+        }
+    },
+    {
+        "model": "Episode",
+        "data": {
+            "title": "Kek wild episode 3",
+            "lead": "What a wild episode",
+            "podcastUrl": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
+            "soundUrl": "http://nrk.no/radio",
+            "showId": 3
+        }
+    }
+]

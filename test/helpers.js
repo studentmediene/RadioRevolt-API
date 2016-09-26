@@ -6,7 +6,10 @@ import { syncDB } from '../src/db-helpers';
 
 export function loadFixtures(fixtures) {
     const f = fixtures || [
-        'categories'
+        'categories',
+        'shows',
+        'episodes',
+        'posts'
     ];
     const fixturePaths = f.map(file => `${path.resolve(__dirname)}/fixtures/${file}.json`);
     return syncDB({ force: true })
