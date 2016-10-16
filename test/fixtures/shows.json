@@ -23,7 +23,9 @@
             "title": "Kek wild Show 3",
             "lead": "What a wild Show",
             "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
-            "logoImage": "http://imgur.com"
+            "logoImage": "http://imgur.com",
+            "explicitContent": false,
+            "language": "en-us  "
         }
     }
 ]

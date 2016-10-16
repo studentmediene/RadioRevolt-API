@@ -31,6 +31,16 @@ export default function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: ''
+        },
+        explicitContent: {
+            type: DataTypes.BOOL,
+            allowNull: false,
+            defaultValue: false
+        },
+        language: {
+            type: DataTypes.STRING(5),
+            allowNull: false,
+            defaultValue: 'no'
         }
     }, {
         classMethods: {
