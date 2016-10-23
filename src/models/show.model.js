@@ -17,6 +17,11 @@ export default function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: ''
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: ''
+        },
         rssFeed: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -33,7 +38,12 @@ export default function (sequelize, DataTypes) {
             defaultValue: ''
         },
         explicitContent: {
-            type: DataTypes.BOOL,
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        },
+        archived: {
+            type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
         },
