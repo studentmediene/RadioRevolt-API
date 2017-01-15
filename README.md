@@ -39,6 +39,13 @@ If you're gonna develop:
 
 This will watch for changes and keep the application open for you.
 
+### Local decelopment environment with Docker Compose
+
+Docker can spin up the DB and the API for you, i.e. for when you're working on a frontend component such as a webapp.
+
+1. Install [Docker Compose](https://docs.docker.com/compose/install/)
+2. Run `docker-compose up`, and the API will be available on your port 9000.
+
 ## Tests
 
 ### Single run

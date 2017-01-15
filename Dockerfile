@@ -1,5 +1,5 @@
 FROM node:6
-MAINTAINER Stein-Otto Svorstøl <steinotto@svorstol.com>
+MAINTAINER Studentmediene <it@studentmediene.no>
 
 # Create app directory
 RUN mkdir -p /app

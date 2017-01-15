@@ -1,0 +1,16 @@
+db:
+  image: postgres
+  environment:
+    - PGHOST=db
+    - PGDATABASE=postgres
+    - PGUSER=postgres
+api:
+  build: .
+  entrypoint: "npm start"
+  ports:
+      - "9000:9000"
+  links:
+    - db
+  environment:
+    - PG_URL=postgres://postgres:postgres@db/postgres
+    - NODE_ENV=development
