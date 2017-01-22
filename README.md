@@ -73,7 +73,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### Category
 
 | Field | Type | Description | Required? | Default value|Can be null? |
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Category title.| No | Empty string | No|
 | description | String | Category description | No | Empty string |No|
@@ -81,7 +81,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### Episode
 
 | Field | Type | Description | Required? | Default value| Can be null? |
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
 | lead | String | Lead/introduction/description for the episode. | Yes | Empty string | No|
@@ -94,7 +94,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### Show
 
 | Field | Type | Description | Required? | Default value| Can be null? |
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
 | description | String | Description for the show. | Yes | Empty string | No|
@@ -109,7 +109,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### Post
 
 | Field | Type | Description | Required? | Default value| Can be null? |
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
 | lead | String | Description for the s how. | Yes | Empty string | No|
@@ -126,7 +126,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### `/categories`
 
 | Method | Path | Request data |What does it do?| Successful status code | Returns |
-|:--|
+|:--|:--|:--|:--|:--|:--|
 | POST | `/`| Category object | Create category | `201 Created`| New object. |
 | GET | `/`| -|  Get all categories | `200 OK`| Array of category objects |
 | GET | `/id` | -|Get a specific category | `200 OK`| Category object of given id  |
@@ -137,7 +137,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### `/episodes`
 
 | Method | Path | Request data |What does it do?| Successful status code | Returns |
-|:--|
+|:--|:--|:--|:--|:--|:--|
 | POST | `/`| Episode object |Create episode | `201 Created`| New episode object |
 | GET | `/`| - |Get all episodes | `200 OK`| Array of episode objects|
 | GET | `/id` | -| Get a specific episode | `200 OK`| Episode object with the given id|
@@ -148,7 +148,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### `/posts`
 
 | Method | Path | Request data |What does it do?| Successful status code | Returns |
-|:--|
+|:--|:--|:--|:--|:--|:--|
 | POST | `/`| New post object|Create post | `201 Created`|Newly created object |
 | GET | `/`| -|Get all posts | `200 OK` | Array of post objects |
 | GET | `/id` |-| Get a specific post | `200 OK` | Post object with the given id |
@@ -159,7 +159,7 @@ Remember to have set header `Content-Type` to `application/json`.
 #### `/shows`
 
 | Method | Path | Request data |What does it do?| Successful status code | Returns |
-|:--|
+|:--|:--|:--|:--|:--|:--|
 | POST | `/`| New show object|Create show | `201 Created`|Newly created object|
 | GET | `/`| -|Get all shows | `200 OK`| Array of show objects |
 | GET | `/id` |-| Get specific show | `200 OK` |Show object with the given id|
