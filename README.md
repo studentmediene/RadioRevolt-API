@@ -110,6 +110,7 @@ Note that there is a validation on URLs. They are initially `null`.
 | explicitContent | Boolean | Tells you if this show contains explicit content, such as slurs. | No | `false` | No |  
 | archived | Boolean | Determines if the show is archived, i.e. no longer a running show | No | `false` | No |
 | language | String of max 5 characters | The language used in the show. Used for i.e. Apple iTunes | No | `'no'` | No |
+| digasId | Integer | ID of the show in the Pappagorg API | No | `null` | Yes |
 
 
 #### Post
