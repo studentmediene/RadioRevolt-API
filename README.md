@@ -60,6 +60,9 @@ That's it!
 Run the unit tests continuously with `npm run test:watch`. When there is detected changes in the code, only relevant tests will be ran again..
 All tests will run when a server file is updated. This will use your local database.
 
+### Test data
+To load fixtures into database, run `npm run load`.
+
 ## API
 
 The API is available from `/` in the API. You can place this under whichever prefix you want on your server, i.e. `yourdomain.com/api` using Nginx or similar software.
@@ -69,6 +72,8 @@ The endpoints themselves are organized around the database entities: post, episo
 Remember to have set header `Content-Type` to `application/json`.
 
 ### Data model
+
+Note that there is a validation on URLs. They are initially `null`.
 
 #### Category
 
@@ -85,8 +90,9 @@ Remember to have set header `Content-Type` to `application/json`.
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
 | lead | String | Lead/introduction/description for the episode. | Yes | Empty string | No|
-| podcastUrl | String | URL to podcast RSS feed | No | Empty string | No|
-| soundUrl | String |  | No | Empty string | No|
+|slug | String | Unique string for identify the entity in URLs in the frontend | Yes | Defined by system as `slugify(title id)`, where `slugify` concatinates the string with `-`| No|
+| podcastUrl | String | URL to podcast RSS feed | No | `null` | Yes|
+| soundUrl | String | URL to Stream on Demand.  | No | `null` | Yes|
 | showId | Integer |ID of an associated show. | No | `null` | Yes |
 
 
@@ -98,8 +104,8 @@ Remember to have set header `Content-Type` to `application/json`.
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
 | description | String | Description for the show. | Yes | Empty string | No|
-| rssFeed | String | URL to podcast RSS feed | No | Empty string | No|
-| logoImage| String | URL to logo image   | No | Empty string | No|
+| podcastRssFeedUrl | String | URL to podcast RSS feed | No | Empty string | No|
+| logoImageUrl| String | URL to logo image   | No | Empty string | No|
 | lead | String | Lead/introduction/description for the show.| No | Emptry string | No|
 | explicitContent | Boolean | Tells you if this show contains explicit content, such as slurs. | No | `false` | No |  
 | archived | Boolean | Determines if the show is archived, i.e. no longer a running show | No | `false` | No |
@@ -111,10 +117,11 @@ Remember to have set header `Content-Type` to `application/json`.
 | Field | Type | Description | Required? | Default value| Can be null? |
 |:--|:--|:--|:--|:--|:--|
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
-| title | String | Episode title.| No | Empty string | No|
+| title | String | Episode title.| No | - | No|
 | lead | String | Description for the s how. | Yes | Empty string | No|
+|slug | String | Unique string for identify the entity in URLs in the frontend | Yes | Defined by system as `slugify(title id)`, where `slugify` concatinates the string with `-`| No|
 | content | Text/Long string | The content of the post| No | Empty string | No|
-| coverPhoto | String | URL to logo image   | No | Empty string | No|
+| coverPhotoUrl | String | URL to top image  | No | `null` | Yes|
 | authorId | Integer | The id of the author of the post. Author can then be looked up in user service. | No | None | Yes |  
 | pinned | Boolean | Determines if the post is pinned, i.e. meant to always be at the top of the page. | No | `false` | No |
 | categoryId | Integer |ID of the category of the post | No | `null` | Yes |

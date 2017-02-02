@@ -22,15 +22,19 @@ export default function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: ''
         },
-        rssFeed: {
+        podcastRssFeedUrl: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: ''
+            allowNull: true,
+            validate: {
+                isUrl: true
+            }
         },
-        logoImage: {
+        logoImageUrl: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: ''
+            allowNull: true,
+            validate: {
+                isUrl: true
+            }
         },
         lead: {
             type: DataTypes.STRING,
