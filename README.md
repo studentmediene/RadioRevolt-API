@@ -90,7 +90,7 @@ Note that there is a validation on URLs. They are initially `null`.
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
 | lead | String | Lead/introduction/description for the episode. | Yes | Empty string | No|
-|slug | String | Unique string for identify the entity in URLs in the frontend | Yes | Defined by system as `slugify(title id)`, where `slugify` concatinates the string with `-`| No|
+ |slug | String | Unique string for identify the entity in URLs in the frontend | Yes | Defined by system as `slugify(title id)`, where `slugify` concatinates the string with `-`| No|
 | podcastUrl | String | URL to podcast RSS feed | No | `null` | Yes|
 | soundUrl | String | URL to Stream on Demand.  | No | `null` | Yes|
 | showId | Integer |ID of an associated show. | No | `null` | Yes |
@@ -129,6 +129,10 @@ Note that there is a validation on URLs. They are initially `null`.
 
 
 ### API endpoint specification
+
+The previous section describes the data model that is used. This section explains allowed operations and their workings.
+
+Note that all `GET` requests allow queries on the attributes of that entity. I.e. `/episodes?showId=1`. You can combine queries with `&`, i.e. `/episodes?showId=1&title=My title`.
 
 #### `/categories`
 

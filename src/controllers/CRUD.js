@@ -29,7 +29,7 @@ class CRUD {
      * @param  {Function} next Express next middleware function
      */
     list(req, res, next) {
-        this.Model.findAll()
+        this.Model.findAll({ where: req.query })
         .then(res.json.bind(res))
         .catch(next);
     }
