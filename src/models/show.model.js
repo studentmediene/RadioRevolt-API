@@ -56,7 +56,7 @@ export default function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 'no'
         },
-        digasId: { // For use with LDAP
+        digasId: {
             type: DataTypes.INTEGER,
             allowNull: true
         }
