@@ -1,0 +1,38 @@
+## circle.yml
+machine:
+    node:
+        version: 6.2.2
+    environment:
+        NODE_ENV: test
+    services:
+        - docker
+
+dependencies:
+    pre:
+        - npm install -g npm babel-cli
+    override:
+        - npm install
+
+test:
+    override:
+        - npm test:
+            environment:
+                PG_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+    post:
+        - npm run coverage
+
+deployment:
+    
+    production:
+        branch: master
+        commands:
+            - docker build -t radiorevolt-api:latest .
+            - docker tag radiorevolt-api:latest studentmediene/radiorevolt-api:latest
+            - docker push studentmediene/radiorevolt-api:latest
+
+    staging:
+        branch: dev
+        commands:
+            - docker build -t radiorevolt-api-dev:latest .
+            - docker tag radiorevolt-api-dev:latest studentmediene/radiorevolt-api-dev:latest
+            - docker push studentmediene/radiorevolt-api-dev:latest
