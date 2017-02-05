@@ -2,10 +2,10 @@ db:
   image: postgres
   environment:
     - PGHOST=db
-    - PGDATABASE=postgres
     - PGUSER=postgres
+    - PGPASSWORD=postgres
 api:
-  build: .
+  image: studentmediene/radiorevolt-api-dev:latest
   entrypoint: "npm start"
   ports:
       - "9000:9000"
