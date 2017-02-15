@@ -1,4 +1,12 @@
-# RadioRevolt.no API  [![CircleCI](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/master.svg?style=svg&circle-token=857eae8d8a788eabadcd868e5153010c7b72227b)](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/master)
+# RadioRevolt.no API  
+
+## Build status
+
+
+| `dev` | `master`|
+| :--  |:--|
+|[![CircleCI](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/dev.svg?style=svg)](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/dev) |[![CircleCI](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/master.svg?style=svg)](https://circleci.com/gh/Studentmediene/RadioRevolt-API/tree/master) |
+
 
 ## Workflow
 
