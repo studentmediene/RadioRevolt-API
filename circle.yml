@@ -12,17 +12,17 @@ dependencies:
         - npm install -g npm babel-cli
     override:
         - npm install
+    post:
+        - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+
 
 test:
     override:
         - npm test:
             environment:
                 PG_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
-    post:
-        - npm run coverage
 
 deployment:
-    
     production:
         branch: master
         commands:
