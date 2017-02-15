@@ -1,11 +1,13 @@
 db:
   image: postgres
+  container_name: radiorevolt-postgres
   environment:
     - PGHOST=db
     - PGUSER=postgres
     - PGPASSWORD=postgres
 api:
   image: studentmediene/radiorevolt-api-dev:latest
+  container_name: radiorevolt-api
   entrypoint: "npm start"
   ports:
       - "9000:9000"
