@@ -15,4 +15,4 @@ api:
     - db
   environment:
     - PG_URL=postgres://postgres:postgres@db/postgres
-    - NODE_ENV=development
+    - NODE_ENV=docker
