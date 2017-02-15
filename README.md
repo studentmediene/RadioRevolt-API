@@ -48,6 +48,8 @@ Docker can spin up the database and the API for you. This is great for when buil
 
 That's it!
 
+**Note:** It may not work the first time around, because of setup processes. Just stop it with Ctrl + C and start again, with `docker-compose up`.
+
 ## Tests
 
 ### Single run
@@ -62,6 +64,12 @@ All tests will run when a server file is updated. This will use your local datab
 
 ### Test data
 To load fixtures into database, run `npm run load`.
+
+If you're running the API from Docker Compose, do the following:
+
+1. Attach to the container's bash shell:`docker exec -i -t radiorevolt-api  /bin/bash`
+2. The run `npm run load` from there.
+3. Type `exit` to leave the shell.
 
 ## API
 
