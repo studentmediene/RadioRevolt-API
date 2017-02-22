@@ -4,8 +4,8 @@
 		"data": {
             "title": "Kek wild Show 1",
             "lead": "What a wild Show",
-            "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
-            "logoImage": "http://imgur.com"
+            "podcastRssFeedUrl": "http://pappagorg.radiorevolt.no/podkast/Ctrl+Alt+Delete%20Kr%C3%B8nikene%20Volum%20II%20(2008%20-%202010).MP3",
+            "logoImageUrl": "http://dusken.no/media/thumbs/uploads/images/V2.jpg.170x170_q85_crop_upscale.jpg"
 		}
 	},
     {
@@ -13,8 +13,8 @@
         "data": {
             "title": "Kek wild Show 2",
             "lead": "What a wild Show",
-            "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
-            "logoImage": "http://imgur.com"
+            "podcastRssFeedUrl": "http://pappagorg.radiorevolt.no/podkast/Ctrl+Alt+Delete%20Kr%C3%B8nikene%20Volum%20III%20(2010%20-%202012).MP3",
+            "logoImageUrl": "http://dusken.no/media/thumbs/uploads/images/V2.jpg.170x170_q85_crop_upscale.jpg"
         }
     },
     {
@@ -22,10 +22,11 @@
         "data": {
             "title": "Kek wild Show 3",
             "lead": "What a wild Show",
-            "rssFeed": "http://www.p4.no/lyttesenter/podcast.ashx?pid=330",
-            "logoImage": "http://imgur.com",
+            "podcastRssFeedUrl": "http://pappagorg.radiorevolt.no/podkast/Ctrl+Alt+Delete%20Krønikene%20Volum%20IV%20(2012%20-%202015).MP3",
+            "logoImageUrl": "http://dusken.no/media/thumbs/uploads/images/V2.jpg.170x170_q85_crop_upscale.jpg",
             "explicitContent": false,
-            "language": "en-us  "
+            "language": "en-us",
+            "archived": true
         }
     }
 ]

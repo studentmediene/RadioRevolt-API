@@ -7,6 +7,7 @@ import app from '../../src/app';
 const URI = '/shows';
 
 let dbObjects;
+let testFixture;
 
 describe.serial('Show API', it => {
     it.beforeEach(() =>
@@ -16,6 +17,15 @@ describe.serial('Show API', it => {
                 dbObjects = response;
             })
     );
+
+    it.beforeEach(() => {
+        testFixture = {
+            title: 'added show',
+            lead: 'the new show',
+            rssFeed: 'http://www.p4.no/lyttesenter/podcast.ashx?pid=330',
+            logoImage: 'http://imgur.com'
+        };
+    });
 
     it('should reitrieve a list of all shows', async t => {
         const response = await request(app)
@@ -42,18 +52,20 @@ describe.serial('Show API', it => {
         t.is(response.body.message, 'Could not find resource of type show');
     });
 
-    it('should add a new show', async t => {
-        const content = {
-            title: 'added show',
-            lead: 'the new show',
-            rssFeed: 'http://www.p4.no/lyttesenter/podcast.ashx?pid=330',
-            logoImage: 'http://imgur.com'
-        };
+    it('should let you add a new show', async t => {
         const response = await request(app)
             .post(URI)
-            .send(content)
+            .send(testFixture)
             .expect(201);
-        t.is(response.body.name, content.name);
+        t.is(response.body.title, testFixture.title);
+    });
+
+    it('should add slug to new show', async t => {
+        const response = await request(app)
+            .post(URI)
+            .send(testFixture)
+            .expect(201);
+        t.not(response.body.slug, null);
     });
 
     it('should be able to update a show', async () => {

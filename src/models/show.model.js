@@ -3,6 +3,8 @@
 * @module models/Show
 */
 
+import slugify from 'slugify';
+
 /**
 * Show model - create and export the database model for shows
 * including all assosiations and classmethods assiciated with this model.
@@ -59,8 +61,22 @@ export default function (sequelize, DataTypes) {
         digasId: {
             type: DataTypes.INTEGER,
             allowNull: true
+        },
+        slug: {
+            type: DataTypes.STRING,
+            // Allow null because then Sequelize can set it to null,
+            // then receive the object and create slug based on
+            // id and title.
+            allowNull: true,
+            unique: true
         }
     }, {
+        hooks: {
+            afterCreate: show => {
+                const slug = slugify(`${show.get('title')} ${show.get('id')}`);
+                show.set('slug', slug);
+            }
+        },
         classMethods: {
             associate(models) {
                 Show.hasMany(models.Post, {
