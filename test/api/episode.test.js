@@ -7,6 +7,8 @@ const URI = '/episodes';
 
 let dbObjects;
 
+let testFixture;
+
 describe.serial('Episode API', it => {
     it.beforeEach(() =>
         loadFixtures()
@@ -15,6 +17,16 @@ describe.serial('Episode API', it => {
                 dbObjects = response;
             })
     );
+
+    it.beforeEach(() => {
+        testFixture = {
+            title: 'Kek wild episode 2',
+            lead: 'What a wild episode',
+            podcastUrl: 'http://www.p4.no/lyttesenter/podcast.ashx?pid=330',
+            soundUrl: 'http://nrk.no/radio',
+            showId: 1
+        };
+    });
 
     it('should reitrieve a list of all episodes', async t => {
         const response = await request(app)
@@ -41,20 +53,23 @@ describe.serial('Episode API', it => {
         t.is(response.body.message, 'Could not find resource of type episode');
     });
 
-    it('should add a new Episode', async t => {
-        const content = {
-            title: 'Kek wild episode 2',
-            lead: 'What a wild episode',
-            podcastUrl: 'http://www.p4.no/lyttesenter/podcast.ashx?pid=330',
-            soundUrl: 'http://nrk.no/radio',
-            showId: 1
-        };
+    it('should be able to add a new Episode', async t => {
         const response = await request(app)
             .post(URI)
-            .send(content)
+            .send(testFixture)
             .expect(201);
-        t.is(response.body.name, content.name);
+        t.is(response.body.name, testFixture.name);
     });
+
+    it('should add Slug to a newly created Episode', async t => {
+        testFixture.title = 'Kek episode number 11';
+        const response = await request(app)
+            .post(URI)
+            .send(testFixture)
+            .expect(201);
+        t.is(response.body.name, testFixture.name);
+    });
+
 
     it('should be able to update a Episode', async () => {
         const episode = dbObjects[0];

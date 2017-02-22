@@ -57,6 +57,23 @@ describe.serial('Post API', it => {
         t.is(response.body.name, content.name);
     });
 
+    it('should add a slug to a new post', async t => {
+        const content = {
+            title: 'New post 2',
+            lead: 'New post that you have to read 2',
+            content: 'Great new post. The best post, really.',
+            coverPhoto: 'http://imgur.com',
+            authorId: null,
+            pinned: false
+        };
+        const response = await request(app)
+            .post(URI)
+            .send(content)
+            .expect(201);
+        t.not(response.body.slug, null);
+    });
+
+
     it('should be able to update a post', async () => {
         const post = dbObjects[0];
         await request(app)
