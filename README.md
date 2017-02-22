@@ -58,6 +58,7 @@ That's it!
 
 **Note:** It may not work the first time around, because of setup processes. Just stop it with Ctrl + C and start again, with `docker-compose up`.
 
+
 ## Tests
 
 ### Single run
@@ -78,6 +79,12 @@ If you're running the API from Docker Compose, do the following:
 1. Attach to the container's bash shell:`docker exec -i -t radiorevolt-api  /bin/bash`
 2. The run `npm run load` from there.
 3. Type `exit` to leave the shell.
+
+In case you need to reset your database, do the following:
+
+1. `docker-compose down` to stop the services.
+2. `docker rmi postgres` to remove your Postgres-image.
+3. `docker-compose up` to pull a new image and spin everything up again.
 
 ## API
 
