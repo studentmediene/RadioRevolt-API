@@ -57,6 +57,7 @@ export default function (sequelize, DataTypes) {
             afterCreate: post => {
                 const slug = slugify(`${post.get('title')} ${post.get('id')}`);
                 post.set('slug', slug);
+                post.save();
             }
         },
         classMethods: {
