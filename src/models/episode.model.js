@@ -51,6 +51,7 @@ export default function (sequelize, DataTypes) {
             afterCreate: episode => {
                 const slug = slugify(`${episode.get('title')} ${episode.get('id')}`);
                 episode.set('slug', slug);
+                episode.save();
             }
         },
         classMethods: {
