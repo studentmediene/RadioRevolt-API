@@ -58,6 +58,9 @@ That's it!
 
 **Note:** It may not work the first time around, because of setup processes. Just stop it with Ctrl + C and start again, with `docker-compose up`.
 
+**Note about making sure you have the latest version:** `docker-compose up` will get images if they're missing, but not check if you have the latest images.
+To make sure you have the latest images, run `docker-compose pull`. To be sure every time you start it that you're using the latest version, start with
+`docker-compose pull && docker-compose up`. 
 
 ## Tests
 
