@@ -5,10 +5,11 @@
             "title": "Some post 1",
             "lead": "Test post 1",
             "content": "Great new test post 1",
-            "coverPhotoUrl": "http://imgur.com",
+            "coverPhotoUrl": "https://radiorevolt.no/media/uploads/images/Snow_Boyz_til_rr.jpg",
             "authorId": null,
             "pinned": false,
             "categoryId": 1,
+						"slug": "Some-post-1",
             "showId": 1
 		}
 	},
@@ -18,10 +19,11 @@
             "title": "Some post 2",
             "lead": "Test post 2",
             "content": "Great new test post 2",
-            "coverPhotoUrl": "http://imgur.com",
+            "coverPhotoUrl": "https://radiorevolt.no/media/uploads/images/aikcrop.jpg",
             "authorId": null,
             "pinned": false,
             "categoryId": 2,
+						"slug": "Some-post-2",
             "showId": 2
 
         }
@@ -32,10 +34,11 @@
             "title": "Some post 3",
             "lead": "Test post 3",
             "content": "Great new test post 3",
-            "coverPhotoUrl": "http://imgur.com",
+            "coverPhotoUrl": "https://radiorevolt.no/media/uploads/images/Kristopher2.jpg",
             "authorId": null,
             "pinned": false,
             "categoryId": 2,
+						"slug": "Some-post-3",
             "showId": 2
         }
     }
