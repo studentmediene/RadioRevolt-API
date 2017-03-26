@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/essoen/express-api-boilerplate.git"
+    "url": "git+https://github.com/Studentmediene/RadioRevolt-API.git"
   },
-  "author": "Stein-Otto Svorstøl <steinotto@svorstol.com>",
+  "author": "Studentmediene i Trondheim <kapina@studentmediene.no>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/essoen/express-api-boilerplate.git/issues"
+    "url": "https://github.com/Studentmediene/RadioRevolt-API.git/issues"
   },
-  "homepage": "https://github.com/essoen/express-api-boilerplate.git#readme",
+  "homepage": "https://github.com/Studentmediene/RadioRevolt-API.git#readme",
   "dependencies": {
     "ava": "0.15.2",
     "ava-spec": "1.0.1",
@@ -50,6 +50,8 @@
     "method-override": "2.3.6",
     "moment": "2.14.1",
     "morgan": "1.7.0",
+    "passport": "^0.3.2",
+    "passport-saml": "^0.15.0",
     "pg": "6.0.1",
     "raven": "0.12.0",
     "sequelize": "3.23.3",
