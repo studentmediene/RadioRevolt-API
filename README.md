@@ -10,10 +10,10 @@
 
 ## Workflow
 
-1. Get a task under GitHub issues by talking to you teammates and looking at the sprint backlog. Our Kanban-board is [here](https://github.com/Studentmediene/RadioRevolt-API/projects/2)
+1. Get a task on [JIRA](http://jira.smint.no) by talking to you teammates and looking at the sprint backlog.
 2. Create a new branch  from the `dev`-branch, naming it using our branch naming strategy described below.
 3. Code away and commit often. Try to follow [good commit practice](http://chris.beams.io/posts/git-commit/). Remember to write tests (and run them).
-4. When you're done (see definition of done on GitHub), create a pull request with reference to the JIRA-issue (preferably a link) and an overview of what the pull request is about. Await code review (you can tag people or yell for them on Slack to get your review faster).
+4. When you're done (see the "Definition of Done" below), create a pull request with reference to the JIRA-issue (preferably a link) and an overview of what the pull request is about. Await code review (you can tag people or yell for them on Slack to get your review faster).
 5. When you've reworked your code after the code review, the pull request will be merged.
 
 _Please note that:_
@@ -24,11 +24,17 @@ _Please note that:_
 ### Branch naming strategy
 The project has a strategy for what to name our branches, so that changes in them are easily traceable to issues here on GitHub. Another reason for having a naming strategy is that it makes it easy to find distinct types of proposed changes, as well as what's being worked on.
 
-Name your branches in the following way, where `num` is a issue ID on GitHub:
+Name your branches in the following way, where `num` is a issue ID on JIRA, such as KAP-1337.
 
 * If it's a feature (new functionality) name the branch `feature/num`.
 * If it's a bugfix name the branch `bugfix/num`.
 * If it's a technical task, name the branch `tech/num`
+
+### Definition of Done (DoD)
+A pull request can be submitted when:
+
+* The feature is implemented, bug is fixed or the technical task is completed. This means that it has to meet the acceptance criteria for the task, described on JIRA.
+* There is written tests for any new features/fixes, and tests are adjusted for any changed features/code.
 
 ## Setup
 ### Database
@@ -60,7 +66,7 @@ That's it!
 
 **Note about making sure you have the latest version:** `docker-compose up` will get images if they're missing, but not check if you have the latest images.
 To make sure you have the latest images, run `docker-compose pull`. To be sure every time you start it that you're using the latest version, start with
-`docker-compose pull && docker-compose up`. 
+`docker-compose pull && docker-compose up`.
 
 ## Tests
 
@@ -192,6 +198,9 @@ Note that all `GET` requests allow queries on the attributes of that entity. I.e
 | GET | `/id` |-| Get a specific post | `200 OK` | Post object with the given id |
 | PUT | `/id`| Original post object with your changes |Update post of given ID| `204 No Content` |- |
 | DELETE | `/id` | -| Delete a post | `204 No Content`| - |
+| GET | `/id/categories` |Lists all categories associated with post with the id `id` | `204 OK`| Array of categories|
+| PUT | `/id/categories/categoryId` | Adds the category with the given `categoryId` to the post with the given `id`| `200`| -|
+| DELETE | `/id/categories/categoryId` | Removes the category with the given `categoryId` from the post with the given `id`| `204 No Content`| -|
 
 
 #### `/shows`

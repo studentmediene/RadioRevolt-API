@@ -47,6 +47,10 @@ export default function (sequelize, DataTypes) {
             }
         }
     }, {
+        name: {
+            singular: 'episode',
+            plural: 'episodes'
+        },
         hooks: {
             afterCreate: episode => {
                 const slug = slugify(`${episode.get('title')} ${episode.get('id')}`);

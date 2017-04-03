@@ -29,7 +29,7 @@ class CRUD {
      * @param  {Function} next Express next middleware function
      */
     list(req, res, next) {
-        this.Model.findAll({ where: req.query })
+        this.Model.findAll({ where: req.query, include: [{all: true}] })
         .then(res.json.bind(res))
         .catch(next);
     }
@@ -47,7 +47,8 @@ class CRUD {
         this.Model.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{ all: true }]
         })
         .then(item => {
             if (!item) throw new errors.ResourceNotFoundError(this.resourceName);
@@ -111,7 +112,7 @@ class CRUD {
      * destroy - Deletes an item given id and that the item exists
      *
      * @function destroy
-     * @memberof module:controllers/crudController
+     * @memberof module:controllers/CRUD
      * @param  {Object} req  Express request object
      * @param  {Object} res  Express response object
      * @param  {Function} next Express next middleware function
@@ -128,6 +129,8 @@ class CRUD {
         })
         .catch(next);
     }
+
+
 }
 
 export default CRUD;

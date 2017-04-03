@@ -4,6 +4,7 @@
 */
 
 import slugify from 'slugify';
+import db from './';
 
 /**
 * Post model - create and export the database model for posts
@@ -53,8 +54,13 @@ export default function (sequelize, DataTypes) {
             defaultValue: false
         }
     }, {
+        name: {
+            singular: 'post',
+            plural: 'posts'
+        },
         hooks: {
             afterCreate: post => {
+                // Create the slug based on the given title combined with the id
                 const slug = slugify(`${post.get('title')} ${post.get('id')}`);
                 post.set('slug', slug);
                 post.save();
@@ -62,10 +68,11 @@ export default function (sequelize, DataTypes) {
         },
         classMethods: {
             associate(models) {
-                Post.belongsTo(models.Category, {
+                Post.belongsToMany(models.Category, {
+                    through: 'postCategoryRelations',
                     foreignKey: {
-                        name: 'categoryId',
-                        allowNull: true
+                        name: 'postId',
+                        allowNull: false
                     }
                 });
                 Post.belongsTo(models.Show, {
