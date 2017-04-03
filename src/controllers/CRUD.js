@@ -29,7 +29,7 @@ class CRUD {
      * @param  {Function} next Express next middleware function
      */
     list(req, res, next) {
-        this.Model.findAll({ where: req.query })
+        this.Model.findAll({ where: req.query, include: [{all: true}] })
         .then(res.json.bind(res))
         .catch(next);
     }
@@ -47,7 +47,8 @@ class CRUD {
         this.Model.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{ all: true }]
         })
         .then(item => {
             if (!item) throw new errors.ResourceNotFoundError(this.resourceName);

@@ -23,9 +23,21 @@ export default function (sequelize, DataTypes) {
             defaultValue: ''
         }
     }, {
+        name: {
+            singular: 'category',
+            plural: 'categories'
+        },
         classMethods: {
             associate(models) {
-                Category.hasMany(models.Post);
+                Category.belongsToMany(models.Post, {
+                    through: 'postCategoryRelations',
+                    as:'Categories',
+                    foreignKey: {
+                        name: 'categoryId',
+                        allowNull: false
+                    },
+                    otherKey: 'postId'
+                });
             }
         }
     }
