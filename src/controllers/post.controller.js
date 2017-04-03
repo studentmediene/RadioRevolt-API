@@ -46,6 +46,29 @@ class PostController extends CRUD {
         .then(() => res.sendStatus(200))
         .catch(next);
     }
+
+    /**
+     * removeCategory - Removes category of given ID frmo post of given ID
+     *
+     * @function removeCategory
+     * @memberof module:controllers/post
+     * @param  {Object} req  Express request object
+     * @param  {Object} res  Express response object
+     * @param  {Function} next Express next middleware function
+     */
+    removeCategory(req, res, next) {
+        db.Post.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(post => {
+            if (!post) throw new errors.ResourceNotFoundError(this.resourceName);
+            post.removeCategories([parseInt(req.params.categoryId)]);
+            res.sendStatus(204);
+        })
+        .catch(next);
+    }
 }
 
 export default PostController;

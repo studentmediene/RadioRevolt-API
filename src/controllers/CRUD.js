@@ -112,7 +112,7 @@ class CRUD {
      * destroy - Deletes an item given id and that the item exists
      *
      * @function destroy
-     * @memberof module:controllers/crudController
+     * @memberof module:controllers/CRUD
      * @param  {Object} req  Express request object
      * @param  {Object} res  Express response object
      * @param  {Function} next Express next middleware function
@@ -129,6 +129,8 @@ class CRUD {
         })
         .catch(next);
     }
+
+
 }
 
 export default CRUD;
