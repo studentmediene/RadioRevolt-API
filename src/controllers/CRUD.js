@@ -130,7 +130,6 @@ class CRUD {
         .catch(next);
     }
 
-
 }
 
 export default CRUD;

@@ -2,43 +2,44 @@
 	{
 		"model": "Post",
 		"data": {
-            "title": "Some post 1",
-            "lead": "Test post 1",
+            "title": "Be HUMBLE.",
+            "lead": "Kendrick Lamar is back!",
             "content": "Great new test post 1",
             "coverPhotoUrl": "https://radiorevolt.no/media/uploads/images/Snow_Boyz_til_rr.jpg",
             "authorId": null,
             "pinned": false,
-            "categoryId": 1,
-						"slug": "Some-post-1",
             "showId": 1
 		}
 	},
     {
         "model": "Post",
         "data": {
-            "title": "Some post 2",
-            "lead": "Test post 2",
+            "title": "Top ten reasons why Shit Framework is great!",
+            "lead": "You won't believe number 3. Number 10 will amaze you.",
             "content": "Great new test post 2",
             "coverPhotoUrl": "https://radiorevolt.no/media/uploads/images/aikcrop.jpg",
             "authorId": null,
             "pinned": false,
-            "categoryId": 2,
-						"slug": "Some-post-2",
-            "showId": 2
-
+            "showId": 2,
+            "categories": [
+                {
+                    "id": 2
+                },
+                {
+                    "id": 3
+                }
+            ]
         }
     },
     {
         "model": "Post",
         "data": {
-            "title": "Some post 3",
-            "lead": "Test post 3",
+            "title": "Gadaffi - just an okay guy",
+            "lead": "New sources tells us he gave away beer for free.",
             "content": "Great new test post 3",
             "coverPhotoUrl": "https://radiorevolt.no/media/uploads/images/Kristopher2.jpg",
             "authorId": null,
             "pinned": false,
-            "categoryId": 2,
-						"slug": "Some-post-3",
             "showId": 2
         }
     }
