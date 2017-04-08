@@ -31,7 +31,7 @@ export default function (sequelize, DataTypes) {
             associate(models) {
                 Category.belongsToMany(models.Post, {
                     through: 'postCategoryRelations',
-                    as: 'Categories',
+                    as: 'categories',
                     foreignKey: {
                         name: 'categoryId',
                         allowNull: false

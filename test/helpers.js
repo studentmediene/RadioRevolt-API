@@ -23,6 +23,6 @@ export function loadFixtures(fixtures) {
  * @return {Array}  - All fixture elements form db
  */
 export function getAllElements(model) {
-    return db[model].findAll()
+    return db[model].findAll({ include: [{ all: true }] })
         .then(objects => objects.map(object => object.toJSON()));
 }

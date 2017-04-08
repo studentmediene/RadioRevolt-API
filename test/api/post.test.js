@@ -122,10 +122,13 @@ describe.serial('Post API', it => {
         t.is(response.body.message, 'Could not find resource of type category');
     });
 
-    it('should be able to remove a category from post', async () => {
-        const post = dbObjects[1];
-        await request(app)
-            .delete(`${URI}/${post.id}/categories/2`)
-            .expect(204);
+    it('should be able to remove a category from post', async t => {
+        const post = dbObjects[0];
+        const response = await request(app)
+            .delete(`${URI}/${post.id}/categories/${post.categories[0].id}`)
+            .expect(204)
+            .then(() => request(app).get(`${URI}/${post.id}`))
+            .then(res => res.body);
+        t.is(response.categories.length, 1);
     });
 });
