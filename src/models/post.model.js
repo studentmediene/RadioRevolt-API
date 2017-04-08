@@ -4,7 +4,6 @@
 */
 
 import slugify from 'slugify';
-import db from './';
 
 /**
 * Post model - create and export the database model for posts
@@ -20,7 +19,7 @@ export default function (sequelize, DataTypes) {
             allowNull: false
         },
         lead: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2048),
             allowNull: false,
             defaultValue: ''
         },

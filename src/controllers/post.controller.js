@@ -26,7 +26,7 @@ class PostController extends CRUD {
         })
         .then(post => {
             if (!post) throw new errors.ResourceNotFoundError(resourceName);
-            item.getCategories().then(categories => res.json(categories));
+            post.getCategories().then(categories => res.json(categories));
         })
         .catch(next);
     }
@@ -41,17 +41,15 @@ class PostController extends CRUD {
      * @param  {Function} next Express next middleware function
      */
     addCategory(req, res, next) {
-        db.Category.count({where: { id: req.params.categoryId}})
+        db.Category.count({ where: { id: req.params.categoryId } })
         .then(count => {
             if (count === 0) {
                 throw new errors.ResourceNotFoundError('category');
             }
-
         })
-        .then(() => db.Post.findOne({where: {id: req.params.id}}))
+        .then(() => db.Post.findOne({ where: { id: req.params.id } }))
         .then(post => {
-            if (!post) throw new errors.ResourceNotFoundError(resourceName);
-            post.addCategories([parseInt(req.params.categoryId)]);
+            post.addCategories([parseInt(req.params.categoryId, 10)]);
         })
         .then(() => res.sendStatus(204))
         .catch(next);
@@ -73,8 +71,8 @@ class PostController extends CRUD {
             }
         })
         .then(post => {
-            if (!post) throw new errors.ResourceNotFoundError(resourceName);
-            post.removeCategories([parseInt(req.params.categoryId)]);
+            if (!post) throw new errors.ResourceNotFoundError(this.resourceName);
+            post.removeCategories([parseInt(req.params.categoryId, 10)]);
             res.sendStatus(204);
         })
         .catch(next);
