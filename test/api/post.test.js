@@ -5,7 +5,8 @@ import app from '../../src/app';
 
 const URI = '/posts';
 
-let dbObjects, categories;
+let dbObjects;
+let categories;
 
 describe.serial('Post API', it => {
     it.beforeEach(() =>
@@ -96,12 +97,12 @@ describe.serial('Post API', it => {
     it('should be able to add a category to a post', async () => {
         const fixture = dbObjects[0];
         const category = categories[0];
-        const response = await request(app)
+        await request(app)
             .put(`${URI}/${fixture.id}/categories/${category.id}`)
             .expect(204);
     });
 
-    it('should return ResourceNotFound when trying to add category to nonexisting post', async t => {
+    it('should return ResourceNotFound when adding category to nonexisting post', async t => {
         const fixture = dbObjects[0];
         const category = categories[0];
         const response = await request(app)
@@ -111,7 +112,7 @@ describe.serial('Post API', it => {
         t.is(response.body.message, 'Could not find resource of type post');
     });
 
-    it('should return ResourceNotFound when trying to add nonexisting category to post', async t => {
+    it('should return ResourceNotFound when adding nonexisting category to post', async t => {
         const fixture = dbObjects[0];
         const category = categories[0];
         const response = await request(app)
