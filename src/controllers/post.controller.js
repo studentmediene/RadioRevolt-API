@@ -39,9 +39,9 @@ class PostController extends CRUD {
      * @param  {Function} next Express next middleware function
      */
     addCategory(req, res, next) {
-        db.Post.findOne({where: {id: req.params.id}})
+        db.Post.findOne({ where: { id: req.params.id } })
         .then(post => {
-            post.addCategories([parseInt(req.params.categoryId)]);
+            post.addCategories([parseInt(req.params.categoryId, 10)]);
         })
         .then(() => res.sendStatus(200))
         .catch(next);
@@ -64,7 +64,7 @@ class PostController extends CRUD {
         })
         .then(post => {
             if (!post) throw new errors.ResourceNotFoundError(this.resourceName);
-            post.removeCategories([parseInt(req.params.categoryId)]);
+            post.removeCategories([parseInt(req.params.categoryId, 10)]);
             res.sendStatus(204);
         })
         .catch(next);

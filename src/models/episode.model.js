@@ -28,7 +28,7 @@ export default function (sequelize, DataTypes) {
             unique: true
         },
         lead: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2048),
             allowNull: false,
             defaultValue: ''
         },
