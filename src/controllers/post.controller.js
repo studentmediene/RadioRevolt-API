@@ -2,9 +2,11 @@ import CRUD from './CRUD';
 import db from '../models';
 import * as errors from '../components/errors';
 
+const resourceName = 'post';
+
 class PostController extends CRUD {
     constructor() {
-        super(db.Post, 'post');
+        super(db.Post, resourceName);
     }
 
     /**
@@ -22,9 +24,9 @@ class PostController extends CRUD {
                 id: req.params.id
             }
         })
-        .then(item => {
-            if (!item) throw new errors.ResourceNotFoundError(this.resourceName);
-            item.getCategories().then(categories => res.json(categories));
+        .then(post => {
+            if (!post) throw new errors.ResourceNotFoundError(resourceName);
+            post.getCategories().then(categories => res.json(categories));
         })
         .catch(next);
     }
@@ -39,11 +41,18 @@ class PostController extends CRUD {
      * @param  {Function} next Express next middleware function
      */
     addCategory(req, res, next) {
-        db.Post.findOne({ where: { id: req.params.id } })
+        db.Category.count({ where: { id: req.params.categoryId } })
+        .then(count => {
+            if (count === 0) {
+                throw new errors.ResourceNotFoundError('category');
+            }
+        })
+        .then(() => db.Post.findOne({ where: { id: req.params.id } }))
         .then(post => {
+            if (!post) throw new errors.ResourceNotFoundError(resourceName);
             post.addCategories([parseInt(req.params.categoryId, 10)]);
         })
-        .then(() => res.sendStatus(200))
+        .then(() => res.sendStatus(204))
         .catch(next);
     }
 
@@ -63,7 +72,7 @@ class PostController extends CRUD {
             }
         })
         .then(post => {
-            if (!post) throw new errors.ResourceNotFoundError(this.resourceName);
+            if (!post) throw new errors.ResourceNotFoundError(resourceName);
             post.removeCategories([parseInt(req.params.categoryId, 10)]);
             res.sendStatus(204);
         })

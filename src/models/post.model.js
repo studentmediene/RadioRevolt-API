@@ -43,7 +43,7 @@ export default function (sequelize, DataTypes) {
                 isUrl: true
             }
         },
-        authorId: { // For use with LDAP
+        authorId: { // For use with Active Directory to identify users
             type: DataTypes.INTEGER,
             allowNull: true
         },
@@ -72,7 +72,9 @@ export default function (sequelize, DataTypes) {
                     foreignKey: {
                         name: 'postId',
                         allowNull: false
-                    }
+                    },
+                    otherKey: 'categoryId',
+                    onDelete: 'cascade'
                 });
                 Post.belongsTo(models.Show, {
                     foreignKey: {

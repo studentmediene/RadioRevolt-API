@@ -199,7 +199,7 @@ Note that all `GET` requests allow queries on the attributes of that entity. I.e
 | PUT | `/id`| Original post object with your changes |Update post of given ID| `204 No Content` |- |
 | DELETE | `/id` | -| Delete a post | `204 No Content`| - |
 | GET | `/id/categories` |Lists all categories associated with post with the id `id` | `204 OK`| Array of categories|
-| PUT | `/id/categories/categoryId` | Adds the category with the given `categoryId` to the post with the given `id`| `200`| -|
+| PUT | `/id/categories/categoryId` | Adds the category with the given `categoryId` to the post with the given `id`| `204 No Content`| -|
 | DELETE | `/id/categories/categoryId` | Removes the category with the given `categoryId` from the post with the given `id`| `204 No Content`| -|
 
 

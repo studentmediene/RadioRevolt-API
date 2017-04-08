@@ -6,6 +6,7 @@ import app from '../../src/app';
 const URI = '/posts';
 
 let dbObjects;
+let categories;
 
 describe.serial('Post API', it => {
     it.beforeEach(() =>
@@ -13,6 +14,10 @@ describe.serial('Post API', it => {
             .then(() => getAllElements('Post'))
             .then(response => {
                 dbObjects = response;
+            })
+            .then(() => getAllElements('Category'))
+            .then(response => {
+                categories = response;
             })
     );
 
@@ -87,5 +92,43 @@ describe.serial('Post API', it => {
         await request(app)
             .delete(`${URI}/${post.id}`)
             .expect(204);
+    });
+
+    it('should be able to add a category to a post', async () => {
+        const fixture = dbObjects[0];
+        const category = categories[0];
+        await request(app)
+            .put(`${URI}/${fixture.id}/categories/${category.id}`)
+            .expect(204);
+    });
+
+    it('should return ResourceNotFound when adding category to nonexisting post', async t => {
+        const fixture = dbObjects[0];
+        const category = categories[0];
+        const response = await request(app)
+            .put(`${URI}/${fixture.id + 1000}/categories/${category.id}`)
+            .expect(404);
+        t.is(response.body.name, 'ResourceNotFoundError');
+        t.is(response.body.message, 'Could not find resource of type post');
+    });
+
+    it('should return ResourceNotFound when adding nonexisting category to post', async t => {
+        const fixture = dbObjects[0];
+        const category = categories[0];
+        const response = await request(app)
+            .put(`${URI}/${fixture.id}/categories/${category.id + 100}`)
+            .expect(404);
+        t.is(response.body.name, 'ResourceNotFoundError');
+        t.is(response.body.message, 'Could not find resource of type category');
+    });
+
+    it('should be able to remove a category from post', async t => {
+        const post = dbObjects[0];
+        const response = await request(app)
+            .delete(`${URI}/${post.id}/categories/${post.categories[0].id}`)
+            .expect(204)
+            .then(() => request(app).get(`${URI}/${post.id}`))
+            .then(res => res.body);
+        t.is(response.categories.length, 1);
     });
 });
