@@ -49,6 +49,7 @@ class PostController extends CRUD {
         })
         .then(() => db.Post.findOne({ where: { id: req.params.id } }))
         .then(post => {
+            if (!post) throw new errors.ResourceNotFoundError(resourceName);
             post.addCategories([parseInt(req.params.categoryId, 10)]);
         })
         .then(() => res.sendStatus(204))
@@ -71,7 +72,7 @@ class PostController extends CRUD {
             }
         })
         .then(post => {
-            if (!post) throw new errors.ResourceNotFoundError(this.resourceName);
+            if (!post) throw new errors.ResourceNotFoundError(resourceName);
             post.removeCategories([parseInt(req.params.categoryId, 10)]);
             res.sendStatus(204);
         })
