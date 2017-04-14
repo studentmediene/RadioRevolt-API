@@ -135,6 +135,7 @@ Note that there is a validation on URLs. They are initially `null`.
 |:--|:--|:--|:--|:--|:--|
 | id | Integer | Category ID, assigned by DBMS | No. | - | No|
 | title | String | Episode title.| No | Empty string | No|
+| slug | String | Slug that's created by the system by slugyfining `title` and `id`. In other words: This field cannot be set by a client | No | `slugify(show.title + show.id)` | No. |
 | description | String | Description for the show. | Yes | Empty string | No|
 | podcastRssFeedUrl | String | URL to podcast RSS feed | No | Empty string | No|
 | logoImageUrl| String | URL to logo image   | No | Empty string | No|
@@ -144,6 +145,7 @@ Note that there is a validation on URLs. They are initially `null`.
 | language | String of max 5 characters | The language used in the show. Used for i.e. Apple iTunes | No | `'no'` | No |
 | digasId | Integer | ID of the show in the Pappagorg API | No | `null` | Yes |
 
+Retrievals also includes the field `episodes`, an array of the episodes associated with the show.
 
 #### Post
 
