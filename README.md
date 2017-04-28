@@ -43,13 +43,14 @@ To setup the project locally install Postgres and set `PG_URL ` to your database
 To export your variable on a Unix-system, simply use the `export` command, i.e. `export PG_URL=your value`.
 
 ### Local production environment
-Run `npm run build` to get a transpiled version of the API, then start with `npm start`.
+Run `yarn run build` to get a transpiled version of the API, then start with `yarn start`.
 
 ### Local development environment
 If you're gonna develop the API, you'll need to set it up together with a database. So first set up a local Postgres database, then:
 
-1. Install nodemon `npm install -g nodemon`
-2. Run  `npm run start:dev` Remember that you can run it with environment variables in before the command, i.e. `PG_URL=value npm run start:dev`.
+1. Install dependencies with `yarn install`
+2. Install nodemon globally `yarn global add nodemon`
+3. Run  `yarn run start:dev` Remember that you can run it with environment variables in before the command, i.e. `PG_URL=value yarn run start:dev`.
 
 This will watch for changes and keep the application open for you.
 
@@ -72,21 +73,21 @@ To make sure you have the latest images, run `docker-compose pull`. To be sure e
 
 ### Single run
 
-* Run unit tests & code lint with `npm test`. This will use your local database.
-* Run just unit tests with `npm run tests` with `NODE_ENV=test`. This will use your local database.
+* Run unit tests & code lint with `yarn test`. This will use your local database.
+* Run just unit tests with `yarn run tests` with `NODE_ENV=test`. This will use your local database.
 
 ### Watch
 
-Run the unit tests continuously with `npm run test:watch`. When there is detected changes in the code, only relevant tests will be ran again..
+Run the unit tests continuously with `yarn run test:watch`. When there is detected changes in the code, only relevant tests will be ran again..
 All tests will run when a server file is updated. This will use your local database.
 
 ### Test data
-To load fixtures into database, run `npm run load`.
+To load fixtures into database, run `yarn run load`.
 
 If you're running the API from Docker Compose, do the following:
 
 1. Attach to the container's bash shell:`docker exec -i -t radiorevolt-api  /bin/bash`
-2. The run `npm run load` from there.
+2. The run `yarn run load` from there.
 3. Type `exit` to leave the shell.
 
 In case you need to reset your database, do the following:
